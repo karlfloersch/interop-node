@@ -33,7 +33,7 @@ services:
     profiles: [mainnet]
     command: >
       node --chain optimism --datadir /data --color never
-      ${RETH_HISTORY---full}
+      ${RETH_HISTORY---full --prune.receipts.distance 1209600}
       --http --http.addr 0.0.0.0 --http.port 8545 --http.api eth,net,web3,txpool,debug,trace
       --ws --ws.addr 0.0.0.0 --ws.port 8546 --ws.api eth,net,web3
       --authrpc.addr 0.0.0.0 --authrpc.port 8551 --authrpc.jwtsecret /jwt/jwt.hex
@@ -56,7 +56,7 @@ services:
     profiles: [mainnet]
     command: >
       node --chain unichain --datadir /data --color never
-      ${RETH_HISTORY---full}
+      ${RETH_HISTORY---full --prune.receipts.distance 1209600}
       --http --http.addr 0.0.0.0 --http.port 8545 --http.api eth,net,web3,txpool,debug,trace
       --ws --ws.addr 0.0.0.0 --ws.port 8546 --ws.api eth,net,web3
       --authrpc.addr 0.0.0.0 --authrpc.port 8551 --authrpc.jwtsecret /jwt/jwt.hex
@@ -115,7 +115,7 @@ services:
     profiles: [sepolia]
     command: >
       node --chain op-sepolia --datadir /data --color never
-      ${RETH_HISTORY---full}
+      ${RETH_HISTORY---full --prune.receipts.distance 1209600}
       --http --http.addr 0.0.0.0 --http.port 8545 --http.api eth,net,web3,txpool,debug,trace
       --ws --ws.addr 0.0.0.0 --ws.port 8546 --ws.api eth,net,web3
       --authrpc.addr 0.0.0.0 --authrpc.port 8551 --authrpc.jwtsecret /jwt/jwt.hex
@@ -138,7 +138,7 @@ services:
     profiles: [sepolia]
     command: >
       node --chain unichain-sepolia --datadir /data --color never
-      ${RETH_HISTORY---full}
+      ${RETH_HISTORY---full --prune.receipts.distance 1209600}
       --http --http.addr 0.0.0.0 --http.port 8545 --http.api eth,net,web3,txpool,debug,trace
       --ws --ws.addr 0.0.0.0 --ws.port 8546 --ws.api eth,net,web3
       --authrpc.addr 0.0.0.0 --authrpc.port 8551 --authrpc.jwtsecret /jwt/jwt.hex
