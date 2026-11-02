@@ -47,12 +47,12 @@ docker compose up -d
 
 - **op-reth HTTP/WS:** bound to `RPC_BIND`, which defaults to `127.0.0.1`. HTTP includes `debug` and
   `trace`. If you set `RPC_BIND=0.0.0.0`, Docker publishes these ports past host firewalls, so put a proxy
-  or allowlist in front. Both are enabled by default; remove them from `--http.api` if you
-  don't need them.
+  or allowlist in front. The `debug` and `trace` APIs are enabled by default; remove them from
+  `--http.api` if you don't need them.
 - **Supernode RPC and all metrics:** always bound to `127.0.0.1`. The supernode RPC includes
   peer-management methods, so keep it private.
-- **P2P ports:** open inbound TCP+UDP. Behind NAT, also set op-reth's `--nat` and the supernode's
-  P2P advertise-IP flag, or peer discovery may degrade.
+- **P2P ports:** open inbound TCP+UDP. Behind NAT, also set op-reth's `--nat extip:<ip>` and the supernode's
+  `--vn.<chain>.p2p.advertise.ip=<ip>`, or peer discovery may degrade.
   - mainnet: 30303–30304 and 9222–9223
   - sepolia: 30305–30306 and 9224–9225
 
