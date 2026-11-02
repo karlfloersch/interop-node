@@ -17,7 +17,7 @@ Tested with op-supernode v1.1.0 and op-reth v2.8.0.
 - An L1 execution RPC and an L1 beacon API. The beacon API must serve blobs.
 - NVMe/SSD storage. Plan for 4 TB+ for mainnet (leaves room to restore a snapshot) and 2 TB for Sepolia.
   Archive nodes need much more.
-- 16+ cores and 64 GB RAM per network. Run on Linux; Docker Desktop on macOS is not suitable for mainnet.
+- 16+ cores and 64 GB RAM per network.
 
 ## Quickstart
 
