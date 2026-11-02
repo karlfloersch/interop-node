@@ -17,7 +17,7 @@ Tested with op-supernode v1.1.0 and op-reth v2.8.0.
 - An L1 execution RPC and an L1 beacon API. The beacon API must serve blobs.
 - NVMe/SSD storage. Plan for 4 TB+ for mainnet (leaves room to restore a snapshot) and 2 TB for Sepolia.
   Archive nodes need much more.
-- 16+ cores and 64 GB RAM per network.
+- 16+ cores and 64 GB RAM per network. Run on Linux; Docker Desktop on macOS is not suitable for mainnet.
 
 ## Quickstart
 
@@ -47,10 +47,12 @@ docker compose up -d
 
 - **op-reth HTTP/WS:** bound to `RPC_BIND`, which defaults to `127.0.0.1`. HTTP includes `debug` and
   `trace`. If you set `RPC_BIND=0.0.0.0`, Docker publishes these ports past host firewalls, so put a proxy
-  or allowlist in front.
+  or allowlist in front. Both are enabled by default; remove them from `--http.api` if you
+  don't need them.
 - **Supernode RPC and all metrics:** always bound to `127.0.0.1`. The supernode RPC includes
   peer-management methods, so keep it private.
-- **P2P ports:** open inbound TCP+UDP.
+- **P2P ports:** open inbound TCP+UDP. Behind NAT, also set op-reth's `--nat` and the supernode's
+  P2P advertise-IP flag, or peer discovery may degrade.
   - mainnet: 30303–30304 and 9222–9223
   - sepolia: 30305–30306 and 9224–9225
 
